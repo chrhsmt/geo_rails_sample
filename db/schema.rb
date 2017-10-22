@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021121321) do
+ActiveRecord::Schema.define(version: 20171022100848) do
 
   create_table "cordinates", force: :cascade do |t|
     t.float    "latitude",   limit: 24
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171021121321) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "cordinates", ["latitude", "longitude"], name: "index_cordinates_on_latitude_and_longitude", using: :btree
   add_index "cordinates", ["latitude"], name: "index_cordinates_on_latitude", using: :btree
   add_index "cordinates", ["longitude"], name: "index_cordinates_on_longitude", using: :btree
   add_index "cordinates", ["quadkey15"], name: "index_cordinates_on_quadkey15", using: :btree

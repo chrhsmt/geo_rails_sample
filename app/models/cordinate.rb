@@ -32,7 +32,7 @@ class Cordinate < ActiveRecord::Base
   def self.random_near
   	@@counter ||= 0
   	val = PRECISION_PAIR.values[@@counter % PRECISION_PAIR.keys.count]
-    Cordinate.near(random_cordinate, val)
+    Cordinate.near(random_cordinate, val, select: "id, latitude, longitude")
   end
 
   def self.random_quakey
